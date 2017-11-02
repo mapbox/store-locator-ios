@@ -16,7 +16,7 @@ class ThemeViewController: UIViewController, MGLMapViewDelegate, CLLocationManag
     
     // MARK: Customize these variables to style your map:
     // Use a MBXTheme from Themes.swift, or create a Color object that contains the necessary colors and use it to set the theme.
-    //      let viewControllerTheme : Theme? = MBXTheme.purpleTheme
+    //      var viewControllerTheme : Theme? = MBXTheme.purpleTheme
     
     var centerCoordinate = CLLocationCoordinate2D(latitude: 40.7478, longitude: -73.9898) // This will serve as the center coordinate if the user denies location permissions.
     var mapView: MGLMapView!
