@@ -9,7 +9,7 @@ The iOS Store Locator Kit is a downloadable project for you to add beautiful plu
 + Code for retrieving directions to store locations with the [Mapbox Directions API](https://www.mapbox.com/help/define-directions-api/)
 
 
-### Get started by [downloading] the project and walking through the [step-by-step tutorial]. Don't forget your [access token].
+### Get started by [downloading](https://github.com/mapbox/store-locator-ios/archive/master.zip) the project and walking through the [step-by-step tutorial](https://www.mapbox.com/help/ios-store-locator/). Don't forget your [access token](https://www.mapbox.com/help/define-access-token/).
 
 
 # What can I customize?
