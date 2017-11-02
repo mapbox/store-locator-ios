@@ -89,13 +89,9 @@ class ThemeViewController: UIViewController, MGLMapViewDelegate, CLLocationManag
         style.addLayer(symbolLayer)
         
         features = feature.shapes as! [MGLPointFeature]
-        
-//                if featuresWithRoute.count == 0 {
-//                    populateFeaturesWithRoutes()
-//                }
+
     }
     
-    // TODO: The user location doesn't always match the route line's origin.
     // MARK: Use a custom user location dot.
     func mapView(_ mapView: MGLMapView, viewFor annotation: MGLAnnotation) -> MGLAnnotationView? {
         
@@ -143,7 +139,8 @@ class ThemeViewController: UIViewController, MGLMapViewDelegate, CLLocationManag
             let layer: Set = ["store-locations"]
             
             if mapView.visibleFeatures(at: point, styleLayerIdentifiers: layer).count > 0 && !UIDeviceOrientationIsLandscape(UIDevice.current.orientation) {
-                // If there is an item at the tap's location, change the marker to the selected marker, create
+                
+                // If there is an item at the tap's location, change the marker to the selected marker.
                 for feature in mapView.visibleFeatures(at: point, styleLayerIdentifiers: layer)
                     where feature is MGLPointFeature {
                         changeItemColor(feature: feature)
