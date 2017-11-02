@@ -1,6 +1,6 @@
 # Mapbox iOS Store Locator Kit
 
-The iOS Store Locator Kit is a downloadable project for you to add beautiful plug-and-play Store Locators to your iOS applications. Use the Kit to allow your users to find and browse store locations, view additional info for each store, and preview the distance and route to the store. Not building for a store owner or a business? You can use this project to locate anything from bike share hubs to ATMs to your neighborhood parks.
+The iOS Store Locator Kit is a downloadable project for you to add beautiful plug-and-play Store Locators to your iOS applications. Use the Kit to allow your users to find and browse store locations, view additional info for each store, and preview the distance and route to the store. Not building for a store owner or a business? You can use this project to locate anything from bike share hubs to ATMs to your neighborhood parks. See [this tutorial](https://www.mapbox.com/help/ios-store-locator/) to help you get started!
 
 #### Included in the Kit:
 + Source files for the app
