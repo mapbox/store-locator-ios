@@ -21,13 +21,13 @@
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>MGLMapboxAccessToken</key>
-	<string>"&lt;Add Access Token&gt;"</string>
+	<string>&lt;Add Access Token&gt;</string>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>""</string>
+	<string>Allows the app to show user location.</string>
 	<key>NSLocationAlwaysUsageDescription</key>
-	<string>""</string>
+	<string>Allows the app to show user location.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>""</string>
+	<string>Allows the app to show user location.</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>

@@ -18,7 +18,7 @@ class ThemeViewController: UIViewController, MGLMapViewDelegate, CLLocationManag
     // Use a MBXTheme from Themes.swift, or create a Color object that contains the necessary colors and use it to set the theme.
     //      let viewControllerTheme : Theme? = MBXTheme.purpleTheme
     
-    var centerCoordinate = CLLocationCoordinate2D(latitude: 40.7478, longitude: -73.9898) // To center the map on the user's location, comment out this line and set the user tracking mode in `viewDidLoad`.
+    var centerCoordinate = CLLocationCoordinate2D(latitude: 40.7478, longitude: -73.9898) // This will serve as the center coordinate if the user denies location permissions.
     var mapView: MGLMapView!
     var itemView : CustomItemView! // Keeps track of the current CustomItemView.
     
@@ -45,10 +45,15 @@ class ThemeViewController: UIViewController, MGLMapViewDelegate, CLLocationManag
         mapView.delegate = self
         mapView.zoomLevel = 11
         
-        //        mapView.setCenter(centerCoordinate, zoomLevel: 11, animated: false) // MARK: To center on the user's location, comment this line out and uncomment the following line.
+        //   mapView.setCenter(centerCoordinate, zoomLevel: 11, animated: false)      // MARK: To center on the user's location, comment this line out and uncomment the following line.
+        
         mapView.userTrackingMode = .follow
         
         view.addSubview(mapView)
+        
+        if CLLocationManager.authorizationStatus() == .denied || CLLocationManager.authorizationStatus() == .notDetermined {
+            mapView.setCenter(centerCoordinate, zoomLevel: 11, animated: false)
+        }
         mapView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleItemTap(sender:))))
         
         customItemViewSize = CGRect(x: 0, y: mapView.bounds.height * 3 / 4, width: view.bounds.width, height: view.bounds.height / 4)
@@ -66,8 +71,11 @@ class ThemeViewController: UIViewController, MGLMapViewDelegate, CLLocationManag
                 self.drawPointData(data: data)
             }
         }
-        
-        addUserLocationDot(to: style)
+        if CLLocationManager.authorizationStatus() == .authorizedAlways || CLLocationManager.authorizationStatus() == .authorizedWhenInUse {
+            addUserLocationDot(to: style)
+        } else {
+            mapView.setCenter(centerCoordinate, zoomLevel: 11, animated: false)
+        }
     }
     
     func drawPointData(data: Data) {
@@ -89,7 +97,9 @@ class ThemeViewController: UIViewController, MGLMapViewDelegate, CLLocationManag
         style.addLayer(symbolLayer)
         
         features = feature.shapes as! [MGLPointFeature]
-
+        if CLLocationManager.authorizationStatus() != .authorizedAlways || CLLocationManager.authorizationStatus() != .authorizedWhenInUse  {
+            populateFeaturesWithRoutes()
+        }
     }
     
     // MARK: Use a custom user location dot.
@@ -107,14 +117,14 @@ class ThemeViewController: UIViewController, MGLMapViewDelegate, CLLocationManag
         if let coord = userLocation?.coordinate {
             userLocationFeature.coordinate = coord
             userLocationSource?.shape = userLocationFeature
+            
             mapView.setCenter(coord, animated: false)
-            if featuresWithRoute.count == 0 {
+            if CLLocationCoordinate2DIsValid(userLocationFeature.coordinate) {
                 populateFeaturesWithRoutes()
             }
         }
     }
-    //
-    // This method is for the example only, and can be removed from final projects.
+    
     func addUserLocationDot(to style: MGLStyle) {
         if !CLLocationCoordinate2DIsValid(userLocationFeature.coordinate) {
             userLocationFeature.coordinate = centerCoordinate
@@ -206,15 +216,10 @@ class ThemeViewController: UIViewController, MGLMapViewDelegate, CLLocationManag
     }
     
     func populateFeaturesWithRoutes() {
-        if featuresWithRoute.count < features.count {
+        if CLLocationCoordinate2DIsValid(userLocationFeature.coordinate) {
             for point in features {
-                if userLocationFeature.coordinate != nil {
-                    let routeCoordinates = getRoute(from: userLocationFeature.coordinate, to: point)
-                    featuresWithRoute[getKeyForFeature(feature: point)] = (point, routeCoordinates)
-                } else {
-                    let routeCoordinates = getRoute(from: centerCoordinate, to: point)
-                    featuresWithRoute[getKeyForFeature(feature: point)] = (point, routeCoordinates)
-                }
+                let routeCoordinates = getRoute(from: userLocationFeature.coordinate, to: point)
+                featuresWithRoute[getKeyForFeature(feature: point)] = (point, routeCoordinates)
             }
         }
     }
