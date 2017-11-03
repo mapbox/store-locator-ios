@@ -11,11 +11,6 @@ The iOS Store Locator Kit is a downloadable project for you to add beautiful plu
 
 ### Get started by [downloading](https://github.com/mapbox/store-locator-ios/archive/master.zip) the project and walking through the [step-by-step tutorial](https://www.mapbox.com/help/ios-store-locator/). Don't forget your [access token](https://www.mapbox.com/help/define-access-token/).
 
-
-<p align="center">
-  <img src="https://user-images.githubusercontent.com/5862541/32356254-1a44db3a-bff1-11e7-9a64-9e91ecd818d8.png" alt="store locator ios"/>
-</p>
-
 # What can I customize?
 
 We built this Kit to cut down on the set-up and development time needed to add a Store Locator into your app. Use our starter themes and features as a plug-and-play solution, or further customize your Store Locator with our flexible build.
