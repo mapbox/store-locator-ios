@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0506EBB32005A9F1001E33F5 /* mapbox_store_locator_tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0506EBB22005A9F1001E33F5 /* mapbox_store_locator_tests.swift */; };
 		051FEA1B1F703CC10058CE04 /* stores.geojson in Resources */ = {isa = PBXBuildFile; fileRef = 051FEA1A1F702EB90058CE04 /* stores.geojson */; };
 		054C046A1F68540F00F808B3 /* ThemePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 054C04691F68540F00F808B3 /* ThemePickerViewController.swift */; };
 		055BEA681F69FF59009FDB7A /* ThemeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 055BEA671F69FF59009FDB7A /* ThemeViewController.swift */; };
@@ -19,7 +20,20 @@
 		3ED066F51F945AF400809A8F /* Themes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ED066F41F945AF400809A8F /* Themes.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		0506EBB52005A9F1001E33F5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 05C3AF681F0EAEDE00487C38 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 05C3AF6F1F0EAEDE00487C38;
+			remoteInfo = "mapbox-store-locator";
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		0506EBB02005A9F1001E33F5 /* mapbox-store-locator-tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "mapbox-store-locator-tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		0506EBB22005A9F1001E33F5 /* mapbox_store_locator_tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mapbox_store_locator_tests.swift; sourceTree = "<group>"; };
+		0506EBB42005A9F1001E33F5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		051FEA1A1F702EB90058CE04 /* stores.geojson */ = {isa = PBXFileReference; lastKnownFileType = text; path = stores.geojson; sourceTree = "<group>"; };
 		054C04691F68540F00F808B3 /* ThemePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemePickerViewController.swift; sourceTree = "<group>"; };
 		055BEA671F69FF59009FDB7A /* ThemeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeViewController.swift; sourceTree = "<group>"; };
@@ -40,6 +54,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		0506EBAD2005A9F1001E33F5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		05C3AF6D1F0EAEDE00487C38 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -51,10 +72,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0506EBB12005A9F1001E33F5 /* mapbox-store-locator-tests */ = {
+			isa = PBXGroup;
+			children = (
+				0506EBB22005A9F1001E33F5 /* mapbox_store_locator_tests.swift */,
+				0506EBB42005A9F1001E33F5 /* Info.plist */,
+			);
+			path = "mapbox-store-locator-tests";
+			sourceTree = "<group>";
+		};
 		05C3AF671F0EAEDE00487C38 = {
 			isa = PBXGroup;
 			children = (
 				05C3AF721F0EAEDE00487C38 /* mapbox-store-locator */,
+				0506EBB12005A9F1001E33F5 /* mapbox-store-locator-tests */,
 				05C3AF711F0EAEDE00487C38 /* Products */,
 				C685C8389F3A3D722EAF16C4 /* Pods */,
 				551AFFD6D3983E5AA124B23E /* Frameworks */,
@@ -65,6 +96,7 @@
 			isa = PBXGroup;
 			children = (
 				05C3AF701F0EAEDE00487C38 /* mapbox-store-locator.app */,
+				0506EBB02005A9F1001E33F5 /* mapbox-store-locator-tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -109,6 +141,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		0506EBAF2005A9F1001E33F5 /* mapbox-store-locator-tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0506EBB92005A9F1001E33F5 /* Build configuration list for PBXNativeTarget "mapbox-store-locator-tests" */;
+			buildPhases = (
+				0506EBAC2005A9F1001E33F5 /* Sources */,
+				0506EBAD2005A9F1001E33F5 /* Frameworks */,
+				0506EBAE2005A9F1001E33F5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0506EBB62005A9F1001E33F5 /* PBXTargetDependency */,
+			);
+			name = "mapbox-store-locator-tests";
+			productName = "mapbox-store-locator-tests";
+			productReference = 0506EBB02005A9F1001E33F5 /* mapbox-store-locator-tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		05C3AF6F1F0EAEDE00487C38 /* mapbox-store-locator */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 05C3AF821F0EAEDE00487C38 /* Build configuration list for PBXNativeTarget "mapbox-store-locator" */;
@@ -135,10 +185,16 @@
 		05C3AF681F0EAEDE00487C38 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0830;
+				LastSwiftUpdateCheck = 0920;
 				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = Mapbox;
 				TargetAttributes = {
+					0506EBAF2005A9F1001E33F5 = {
+						CreatedOnToolsVersion = 9.2;
+						DevelopmentTeam = GJZR2MEM28;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 05C3AF6F1F0EAEDE00487C38;
+					};
 					05C3AF6F1F0EAEDE00487C38 = {
 						CreatedOnToolsVersion = 8.3.3;
 						ProvisioningStyle = Manual;
@@ -159,11 +215,19 @@
 			projectRoot = "";
 			targets = (
 				05C3AF6F1F0EAEDE00487C38 /* mapbox-store-locator */,
+				0506EBAF2005A9F1001E33F5 /* mapbox-store-locator-tests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		0506EBAE2005A9F1001E33F5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		05C3AF6E1F0EAEDE00487C38 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -190,11 +254,11 @@
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-duplo-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-mapbox-store-locator-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		671088BE14F45BA2F4AAC292 /* [CP] Embed Pods Frameworks */ = {
@@ -203,7 +267,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-duplo/Pods-duplo-frameworks.sh",
+				"${SRCROOT}/Pods/Target Support Files/Pods-mapbox-store-locator/Pods-mapbox-store-locator-frameworks.sh",
 				"${PODS_ROOT}/Mapbox-iOS-SDK/dynamic/Mapbox.framework",
 				"${PODS_ROOT}/Mapbox-iOS-SDK/dynamic/Mapbox.framework.dSYM",
 				"${BUILT_PRODUCTS_DIR}/MapboxDirections.swift/MapboxDirections.framework",
@@ -239,6 +303,14 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		0506EBAC2005A9F1001E33F5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0506EBB32005A9F1001E33F5 /* mapbox_store_locator_tests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		05C3AF6C1F0EAEDE00487C38 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -251,6 +323,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		0506EBB62005A9F1001E33F5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 05C3AF6F1F0EAEDE00487C38 /* mapbox-store-locator */;
+			targetProxy = 0506EBB52005A9F1001E33F5 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		05C3AF771F0EAEDE00487C38 /* Main.storyboard */ = {
@@ -272,6 +352,60 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		0506EBB72005A9F1001E33F5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = GJZR2MEM28;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = "mapbox-store-locator-tests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mapbox.mapbox-store-locator-tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/mapbox-store-locator.app/mapbox-store-locator";
+			};
+			name = Debug;
+		};
+		0506EBB82005A9F1001E33F5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = GJZR2MEM28;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = "mapbox-store-locator-tests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mapbox.mapbox-store-locator-tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/mapbox-store-locator.app/mapbox-store-locator";
+			};
+			name = Release;
+		};
 		05C3AF801F0EAEDE00487C38 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -408,6 +542,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		0506EBB92005A9F1001E33F5 /* Build configuration list for PBXNativeTarget "mapbox-store-locator-tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0506EBB72005A9F1001E33F5 /* Debug */,
+				0506EBB82005A9F1001E33F5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		05C3AF6B1F0EAEDE00487C38 /* Build configuration list for PBXProject "mapbox-store-locator" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
