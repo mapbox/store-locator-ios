@@ -49,7 +49,7 @@ class ThemePickerViewController: UITableViewController {
         
         snapshotter.start { (image, error) in
             guard let image = image else { return }
-            cell.themeImageView.image = image
+            cell.themeImageView.image = image.image
         }
         
         cell.themeMarkerImageView.image = theme.defaultMarker
