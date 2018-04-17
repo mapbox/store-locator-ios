@@ -86,13 +86,15 @@ class ThemeViewController: UIViewController, MGLMapViewDelegate, CLLocationManag
         let source = MGLShapeSource(identifier: "store-locations", shape: feature, options: nil)
         style.addSource(source)
         
-        style.setImage((viewControllerTheme?.defaultMarker)!, forName: "purple_unselected_burger") // Set the default item image.
-        style.setImage((viewControllerTheme?.selectedMarker)!, forName: "purple_selected_burger") // Set the image for the selected item.
+        // Set the default item image.
+        style.setImage((viewControllerTheme?.defaultMarker)!, forName: "unselected_marker")
+        // Set the image for the selected item.
+        style.setImage((viewControllerTheme?.selectedMarker)!, forName: "selected_marker")
         
         let symbolLayer = MGLSymbolStyleLayer(identifier: "store-locations", source: source)
         
-        symbolLayer.iconImageName = MGLStyleValue(rawValue: "purple_unselected_burger")
-        symbolLayer.iconAllowsOverlap = MGLStyleValue(rawValue: 1)
+        symbolLayer.iconImageName = NSExpression(forConstantValue: "unselected_marker")
+        symbolLayer.iconAllowsOverlap = NSExpression(forConstantValue: 1)
         
         style.addLayer(symbolLayer)
         
@@ -132,11 +134,12 @@ class ThemeViewController: UIViewController, MGLMapViewDelegate, CLLocationManag
         
         userLocationSource = MGLShapeSource(identifier: "user-location", features: [userLocationFeature], options: nil)
         let userLocationStyle = MGLCircleStyleLayer(identifier: "user-location-style", source: userLocationSource!)
-        userLocationStyle.circleColor = MGLStyleValue(rawValue: (viewControllerTheme?.themeColor.primaryDarkColor)!) // Set the color for the user location dot, if applicable.
-        userLocationStyle.circleRadius = MGLStyleValue(rawValue: 7)
-        userLocationStyle.circleStrokeColor = MGLStyleValue(rawValue: (viewControllerTheme?.themeColor.primaryDarkColor)!)
-        userLocationStyle.circleStrokeWidth = MGLStyleValue(rawValue: 4)
-        userLocationStyle.circleStrokeOpacity = MGLStyleValue(rawValue: 0.5)
+        // Set the color for the user location dot, if applicable.
+        userLocationStyle.circleColor = NSExpression(forConstantValue: viewControllerTheme?.themeColor.primaryDarkColor)
+        userLocationStyle.circleRadius = NSExpression(forConstantValue: 7)
+        userLocationStyle.circleStrokeColor = NSExpression(forConstantValue: viewControllerTheme?.themeColor.primaryDarkColor)
+        userLocationStyle.circleStrokeWidth = NSExpression(forConstantValue: 4)
+        userLocationStyle.circleStrokeOpacity = NSExpression(forConstantValue: 0.5)
         
         style.addSource(userLocationSource!)
         style.addLayer(userLocationStyle)
@@ -179,13 +182,11 @@ class ThemeViewController: UIViewController, MGLMapViewDelegate, CLLocationManag
         if let name = feature.attribute(forKey: "name") as? String {
             
             // Change the icon to the selected icon based on the feature name. If multiple items have the same name, choose an attribute that is unique.
-            layer.iconImageName = MGLStyleValue(interpolationMode: .categorical,
-                                                sourceStops: [name: MGLStyleValue<NSString>(rawValue: "purple_selected_burger")],
-                                                attributeName: "name",
-                                                options: [.defaultValue: MGLStyleValue<NSString>(rawValue: "purple_unselected_burger")])
+            layer.iconImageName = NSExpression(format: "MGL_MATCH(name, %@, 'selected_marker', 'unselected_marker')", name)
+            
         } else {
             // Deselect all items if no feature was selected.
-            layer.iconImageName = MGLStyleValue(rawValue: "purple_unselected_burger")
+            layer.iconImageName = NSExpression(forConstantValue: "unselected_marker")
         }
     }
     
@@ -240,9 +241,11 @@ class ThemeViewController: UIViewController, MGLMapViewDelegate, CLLocationManag
                 self.mapView.style?.addSource(source)
                 
                 let lineStyle = MGLLineStyleLayer(identifier: "route-style", source: source)
-                lineStyle.lineColor = MGLStyleValue(rawValue: (self.viewControllerTheme?.themeColor.navigationLineColor)!) // Set the line color to the theme's color.
-                lineStyle.lineJoin = MGLStyleValue(rawValue: NSValue(mglLineCap: .round))
-                lineStyle.lineWidth = MGLStyleValue(rawValue: 3)
+                
+                // Set the line color to the theme's color.
+                lineStyle.lineColor = NSExpression(forConstantValue: self.viewControllerTheme?.themeColor.navigationLineColor)
+                lineStyle.lineJoin = NSExpression(forConstantValue: NSValue(mglLineCap: .round))
+                lineStyle.lineWidth = NSExpression(forConstantValue: 3)
                 
                 if let userDot = mapView.style?.layer(withIdentifier: "user-location-style") {
                     self.mapView.style?.insertLayer(lineStyle, below: userDot)

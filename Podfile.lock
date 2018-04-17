@@ -1,18 +1,22 @@
 PODS:
-  - Mapbox-iOS-SDK (3.7.3)
-  - MapboxDirections.swift (0.15.1):
+  - Mapbox-iOS-SDK (4.0.0-beta.3)
+  - MapboxDirections.swift (0.20.0):
     - Polyline (~> 4.2)
   - Polyline (4.2.0)
 
 DEPENDENCIES:
-  - Mapbox-iOS-SDK (~> 3.7)
-  - MapboxDirections.swift (~> 0.10)
+  - Mapbox-iOS-SDK (from `https://raw.githubusercontent.com/mapbox/mapbox-gl-native/ios-v4.0.0-beta.3/platform/ios/Mapbox-iOS-SDK.podspec`)
+  - MapboxDirections.swift (= 0.20.0)
+
+EXTERNAL SOURCES:
+  Mapbox-iOS-SDK:
+    :podspec: https://raw.githubusercontent.com/mapbox/mapbox-gl-native/ios-v4.0.0-beta.3/platform/ios/Mapbox-iOS-SDK.podspec
 
 SPEC CHECKSUMS:
-  Mapbox-iOS-SDK: 5304bd9605babe6da9050ea4cb23c1671420b737
-  MapboxDirections.swift: 2ed0a698a7721b5373362b74579c7194cda12528
+  Mapbox-iOS-SDK: 75050a566005896c9aaa5ee71c39d4186017000f
+  MapboxDirections.swift: 9a46ca0f0608c76393f392ae793459cc30aa846f
   Polyline: 3d69f75bb136357e27291d439d0436c6ebda57a4
 
-PODFILE CHECKSUM: 9169d8ead9d104593d598657e583b6b63073417f
+PODFILE CHECKSUM: a1c4d3ba1afedf846bcbe7ea2069726c4d26c3a2
 
-COCOAPODS: 1.2.1
+COCOAPODS: 1.4.0
