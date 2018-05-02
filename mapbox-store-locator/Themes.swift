@@ -29,12 +29,12 @@ class MBXTheme : NSObject {
                                   fileURL: Bundle.main.url(forResource: "stores", withExtension: "geojson")!)
     static let grayTheme = Theme(defaultMarker: UIImage(named: "white_unselected_bike")!,
                                  selectedMarker: UIImage(named: "gray_selected_bike")!,
-                                 styleURL: MGLStyle.lightStyleURL(),
+                                 styleURL: MGLStyle.lightStyleURL,
                                  themeColor: ThemeColor.grayTheme,
                                  fileURL: Bundle.main.url(forResource: "stores", withExtension: "geojson")!)
     static let neutralTheme = Theme(defaultMarker: UIImage(named: "blue_unselected_house")!,
                                     selectedMarker: UIImage(named: "blue_selected_house")!,
-                                    styleURL: MGLStyle.streetsStyleURL(),
+                                    styleURL: MGLStyle.streetsStyleURL,
                                     themeColor: ThemeColor.neutralTheme,
                                     fileURL: Bundle.main.url(forResource: "stores", withExtension: "geojson")!)
     static let themes: [Theme] = [
