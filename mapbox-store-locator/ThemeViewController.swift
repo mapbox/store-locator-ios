@@ -182,7 +182,7 @@ class ThemeViewController: UIViewController, MGLMapViewDelegate, CLLocationManag
         if let name = feature.attribute(forKey: "name") as? String {
             
             // Change the icon to the selected icon based on the feature name. If multiple items have the same name, choose an attribute that is unique.
-            layer.iconImageName = NSExpression(format: "MGL_MATCH(name, %@, 'selected_marker', 'unselected_marker')", name)
+            layer.iconImageName = NSExpression(format: "TERNARY(name = %@, 'selected_marker', 'unselected_marker')", name)
             
         } else {
             // Deselect all items if no feature was selected.
@@ -244,7 +244,7 @@ class ThemeViewController: UIViewController, MGLMapViewDelegate, CLLocationManag
                 
                 // Set the line color to the theme's color.
                 lineStyle.lineColor = NSExpression(forConstantValue: self.viewControllerTheme?.themeColor.navigationLineColor)
-                lineStyle.lineJoin = NSExpression(forConstantValue: NSValue(mglLineCap: .round))
+                lineStyle.lineJoin = NSExpression(forConstantValue: "round")
                 lineStyle.lineWidth = NSExpression(forConstantValue: 3)
                 
                 if let userDot = mapView.style?.layer(withIdentifier: "user-location-style") {
