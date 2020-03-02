@@ -11,6 +11,8 @@ import Mapbox
 class ThemeTableViewCell: UITableViewCell {
     @IBOutlet weak var themeImageView: UIImageView!
     @IBOutlet weak var themeMarkerImageView: UIImageView!
+
+    var snapshotter: MGLMapSnapshotter?
 }
 
 class ThemePickerViewController: UITableViewController {
@@ -43,15 +45,21 @@ class ThemePickerViewController: UITableViewController {
         let camera = MGLMapCamera(lookingAtCenter: center, fromDistance: 0, pitch: 0, heading: 0)
         
         // Takes a snapshot of each map with its style and marker, then uses those to create the cell.
+
         let snapshotOptions = MGLMapSnapshotOptions(styleURL: theme.styleURL, camera: camera, size: cell.themeImageView.bounds.size)
         snapshotOptions.zoomLevel = 12.5
         let snapshotter = MGLMapSnapshotter(options: snapshotOptions)
         
-        snapshotter.start { (image, error) in
-            guard let image = image else { return }
-            cell.themeImageView.image = image.image
+        snapshotter.start { (snapshot, error) in
+            if let error = error {
+                print(error.localizedDescription)
+            }
+            guard let snapshot = snapshot else { return }
+
+            cell.themeImageView.image = snapshot.image
         }
-        
+
+        cell.snapshotter = snapshotter
         cell.themeMarkerImageView.image = theme.defaultMarker
         
         return cell
