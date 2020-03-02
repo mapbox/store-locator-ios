@@ -64,8 +64,8 @@ class ThemeViewController: UIViewController, MGLMapViewDelegate, CLLocationManag
     func mapView(_ mapView: MGLMapView, didFinishLoading style: MGLStyle) {
         
         DispatchQueue.global().async {
+
             guard let url = self.viewControllerTheme?.fileURL else { return } // Set the URL containing your store locations.
-            
             let data = try! Data(contentsOf: url)
             DispatchQueue.main.async {
                 self.drawPointData(data: data)
@@ -151,7 +151,7 @@ class ThemeViewController: UIViewController, MGLMapViewDelegate, CLLocationManag
             let point = sender.location(in: sender.view!)
             let layer: Set = ["store-locations"]
             
-            if mapView.visibleFeatures(at: point, styleLayerIdentifiers: layer).count > 0 && !UIDeviceOrientationIsLandscape(UIDevice.current.orientation) {
+            if mapView.visibleFeatures(at: point, styleLayerIdentifiers: layer).count > 0 && !UIDevice.current.orientation.isLandscape {
                 
                 // If there is an item at the tap's location, change the marker to the selected marker.
                 for feature in mapView.visibleFeatures(at: point, styleLayerIdentifiers: layer)
@@ -305,7 +305,7 @@ class ThemeViewController: UIViewController, MGLMapViewDelegate, CLLocationManag
     func getIndexForFeature(feature: MGLPointFeature) -> Int {
         // Filter the features based on a unique attribute. In this case, the location's phone number is used.
         let selectFeature = features.filter({ $0.attribute(forKey: uniqueIdentifier) as! String == feature.attribute(forKey: uniqueIdentifier) as! String })
-        if let index = features.index(of: selectFeature.first!) {
+        if let index = features.firstIndex(of: selectFeature.first!) {
             return index
         }
         return 0
@@ -313,12 +313,12 @@ class ThemeViewController: UIViewController, MGLMapViewDelegate, CLLocationManag
     
     // Hide callout when device is in landscape mode.
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
-        if UIDeviceOrientationIsPortrait(UIDevice.current.orientation) {
+        if UIDevice.current.orientation.isPortrait {
             pageViewController.view.layoutSubviews()
             if let viewController = pageViewController.viewControllers?.first {
                 viewController.view.layoutSubviews()
             }
-        } else if UIDeviceOrientationIsLandscape(UIDevice.current.orientation) {
+        } else if UIDevice.current.orientation.isLandscape {
             changeItemColor(feature: MGLPointFeature())
             pageViewController.view.isHidden = true
             mapView.frame = view.bounds
@@ -363,7 +363,7 @@ extension ThemeViewController: UIPageViewControllerDataSource, UIPageViewControl
                     nextFeature = features[index-1]
                 }
                 nextVC.view = CustomItemView(feature: nextFeature, themeColor: themeColor, iconImage: iconImage)
-                itemView = nextVC.view as! CustomItemView!
+                itemView = nextVC.view as! CustomItemView?
             }
             return nextVC
         }
@@ -388,7 +388,7 @@ extension ThemeViewController: UIPageViewControllerDataSource, UIPageViewControl
                 print(nextFeature)
                 selectedFeature = featuresWithRoute[getKeyForFeature(feature: nextFeature)]
                 nextVC.view = CustomItemView(feature: nextFeature, themeColor: themeColor, iconImage: iconImage)
-                itemView = nextVC.view as! CustomItemView!
+                itemView = nextVC.view as! CustomItemView?
             }
             return nextVC
             
