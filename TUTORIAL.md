@@ -277,7 +277,7 @@ There are several ways to create GeoJSON data. If you don't have GeoJSON data co
 
 First, create a new dataset:
 
-1.  Log into Mapbox Studio and navigate to the [Datasets page](https://studio.mapbox.com/studio/datasets).
+1.  Log into Mapbox Studio and navigate to the [Datasets page](https://studio.mapbox.com/datasets).
 2.  Click the **New dataset** button.
 3.  A new window will open. You'll use the **Blank dataset** option in the upper right corner.
 4.  Name your dataset and click **Create**.
@@ -285,7 +285,7 @@ First, create a new dataset:
 
 Next, begin adding stores. You can use the geocoder in the dataset editor to search for a place and the draw tools to add a new point to your dataset. You can change the geometry, placement, and properties of existing features with the dataset editor’s draw tools.
 
-After you've added each location, you can **Save**, return to the [Datasets page](https://studio.mapbox.com/studio/datasets), click the **Menu** button next to the name of your dataset, and click **Download** to retrieve GeoJSON.
+After you've added each location, you can **Save**, return to the [Datasets page](https://studio.mapbox.com/datasets), click the **Menu** button next to the name of your dataset, and click **Download** to retrieve GeoJSON.
 
 ## Simulate user location and center map
 
